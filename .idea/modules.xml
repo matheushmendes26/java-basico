@@ -3,6 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Java-Basico.iml" filepath="$PROJECT_DIR$/Java-Basico.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Metodos/Metodos.iml" filepath="$PROJECT_DIR$/Metodos/Metodos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Metodos/SistemaSmartTv.iml" filepath="$PROJECT_DIR$/Metodos/SistemaSmartTv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Metodos/SistemasSmartTv.iml" filepath="$PROJECT_DIR$/Metodos/SistemasSmartTv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Terminal/Terminal.iml" filepath="$PROJECT_DIR$/Terminal/Terminal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TipoVariaveis/TipoVariaveis.iml" filepath="$PROJECT_DIR$/TipoVariaveis/TipoVariaveis.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-anatomia-classes/java-anatomia-classes.iml" filepath="$PROJECT_DIR$/java-anatomia-classes/java-anatomia-classes.iml" />
     </modules>
   </component>
