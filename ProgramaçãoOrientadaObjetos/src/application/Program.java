@@ -121,6 +121,151 @@ public class Program {
 
          */
 
+        //Vectors Exercises
+
+        //Exercise 01#
+        /*
+        System.out.print("How many number you will enter: ");
+        int numberQuantity = sc.nextInt();
+        int[] vect = new int[numberQuantity];
+
+        for(int i=0;i<vect.length;i++){
+            System.out.print("Enter a number: ");
+            vect[i] = sc.nextInt();
+        }
+        System.out.println("Negative numbers: ");
+        for(int i=0;i< vect.length;i++){
+            if(vect[i]<0){
+                System.out.println(vect[i]);
+            }
+        }
+
+         */
+
+        //Exercise 02#
+        /*
+        System.out.print("How many number you will enter: ");
+        int numberQuantity = sc.nextInt();
+        double[] vect = new double[numberQuantity];
+        double sum =0;
+
+        for(int i=0;i<vect.length;i++){
+            System.out.print("Enter a number: ");
+            vect[i] = sc.nextInt();
+        }
+        System.out.print("VALORES = ");
+        for(int i=0;i< vect.length;i++){
+            System.out.print(String.format("%.1f  ",vect[i]));
+            sum += vect[i];
+        }
+
+        System.out.println();
+        System.out.println("SUM = "+String.format("%.2f",sum));
+        System.out.println("AVARAGE = "+String.format("%.2f",sum/ vect.length));
+
+         */
+        //Exercise 03#
+        /*
+        System.out.print("How many people you will enter: ");
+        int peopleQuantity = sc.nextInt();
+        People[] vect = new People[peopleQuantity];
+
+        for (int i=0;i<vect.length;i++){
+            System.out.println(i+1+"º People data:");
+            sc.nextLine();
+            System.out.print("Name: ");
+            String name = sc.nextLine();
+            System.out.print("Age: ");
+            int age = sc.nextInt();
+            System.out.print("Height: ");
+            double height = sc.nextDouble();
+            vect[i] = new People(name,height,age);
+        }
+
+        double sum = 0;
+        double count = 0;
+        for(int i=0;i< vect.length;i++){
+            sum += vect[i].getHeight();
+            if(vect[i].getAge()<16){
+                count++;
+            }
+        }
+        double percent16 = count/ vect.length*100;
+        System.out.println("Avarage height: "+String.format("%.2f",sum/ vect.length));
+        System.out.println("People with less of 16 years old: "+String.format("%.1f",percent16)+"%");
+
+        for(int i=0;i< vect.length;i++){
+            if(vect[i].getAge()<16){
+                System.out.println(vect[i].getName());
+            }
+        }
+
+         */
+        //Exercise 04#
+        /*
+        System.out.print("How many numbers you will enter? ");
+        int numberQuantity = sc.nextInt();
+        int[] vect = new int[numberQuantity];
+
+        for(int i=0;i<vect.length;i++){
+            System.out.print("Enter a number: ");
+            vect[i] = sc.nextInt();
+        }
+        System.out.println("Even numbers: ");
+        for(int i=0;i< vect.length;i++){
+            if(vect[i]%2==0){
+                System.out.print(vect[i]+"  ");
+            }
+        }
+         */
+
+        //Exercise 05#
+        /*
+        System.out.print("How many numbers you will enter? ");
+        int numberQuantity = sc.nextInt();
+        double[] vect = new double[numberQuantity];
+
+        for(int i=0;i<vect.length;i++){
+            System.out.print("Enter a number: ");
+            vect[i] = sc.nextDouble();
+        }
+        double maior = vect[0];
+        int position = 0;
+        for(int i=0;i< vect.length;i++){
+            if(vect[i]>=maior)
+            {
+                position = i;
+                maior = vect[i];
+            }
+        }
+        System.out.println("HIGHER VALUE = "+String.format("%.1f",vect[position]));
+        System.out.println("POSITION OF THE HIGHER VALUE = "+position);
+         */
+
+        //Exercise 06#
+        System.out.print("How many elements contain each vector? ");
+        int numberQuantity = sc.nextInt();
+        double[] A = new double[numberQuantity];
+        double[] B = new double[numberQuantity];
+        double[] C = new double[numberQuantity];
+
+        System.out.println("Enter with de values of the vector A:");
+        for(int i=0;i<A.length;i++)
+        {
+            A[i] = sc.nextDouble();
+        }
+
+        System.out.println("Enter with de values of the vector B:");
+        for(int i=0;i<B.length;i++)
+        {
+            B[i] = sc.nextDouble();
+        }
+        System.out.println("RESULT VECTOR: ");
+        for(int i=0;i<A.length;i++)
+        {
+            C[i] = A[i]+B[i];
+            System.out.println(C[i]);
+        }
 
 
         sc.close();
