@@ -2,8 +2,12 @@ package application;
 
 
 import java.net.Inet4Address;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 import entities.*;
 import util.CurrencyConverter;
@@ -243,6 +247,7 @@ public class Program {
          */
 
         //Exercise 06#
+        /*
         System.out.print("How many elements contain each vector? ");
         int numberQuantity = sc.nextInt();
         double[] A = new double[numberQuantity];
@@ -267,7 +272,128 @@ public class Program {
             System.out.println(C[i]);
         }
 
+         */
 
-        sc.close();
+        //Exersice 07#
+        /*
+        System.out.print("How many elements contain each vector? ");
+        int numberQuantity = sc.nextInt();
+        double[] vector = new double[numberQuantity];
+        double sum =0;
+        for(int i=0;i<vector.length;i++){
+            System.out.print("Enter with a number: ");
+            vector[i] = sc.nextDouble();
+            sum +=vector[i];
+        }
+        System.out.println("VECTORS AVERAGE = "+String.format("%.3f",sum/ vector.length));
+        System.out.println("ELEMENTS ABOVE OF THE AVERAGE");
+        for(int i=0;i<vector.length;i++){
+            if(vector[i]<sum/vector.length){
+                System.out.println(String.format("%.1f",vector[i]));
+            }
+        }
+         */
+
+        //Vectors Challenge#
+        /*
+        System.out.print("How many tenants will host in the hostel? ");
+        int numberQuantity = sc.nextInt();
+        Tenant[] vector = new Tenant[10];
+        for(int i=0;i<numberQuantity;i++){
+            System.out.println("Rent #"+(i+1));
+            sc.nextLine();
+            System.out.print("Name: ");
+            String name = sc.nextLine();
+            System.out.print("Email: ");
+            String email = sc.nextLine();
+            System.out.print("Room: ");
+            int room = sc.nextInt();
+            vector[room] = new Tenant(name,email);
+            System.out.println();
+        }
+
+        System.out.println("Busy rooms:");
+        for(int i=0;i< vector.length;i++)
+        {
+            if(vector[i]!=null){
+                System.out.println(i+": "+vector[i]);
+            }
+        }
+         */
+
+        //List Exercise
+        /*
+        System.out.print("How many employees will be registered? ");
+        int numberQuantity = sc.nextInt();
+        List<Employee2> list = new ArrayList<>();
+        int i =0;
+        while(i<numberQuantity){
+            System.out.println("Employee #"+(i+1)+":");
+            System.out.print("Id: ");
+            sc.nextLine();
+            int id = sc.nextInt();
+            sc.nextLine();
+            System.out.print("Name: ");
+            String name = sc.nextLine();
+            System.out.print("Salary: ");
+            double salary = sc.nextDouble();
+            list.add(new Employee2(id, name, salary));
+            System.out.println();
+            i++;
+        }
+        System.out.print("Enter the employee id that will have salary increase: ");
+        int id = sc.nextInt();
+        Employee2 result = list.stream().filter(x->x.getId()==id).findFirst().orElse(null);
+        if(result == null){
+            System.out.println("This id does not exist!");
+
+        }else{
+            System.out.print("Enter the percentage: ");
+            double percentage = sc.nextDouble();
+            for(Employee2 x: list){
+                if(x.getId()==id){
+                    x.increaseSalary(percentage);
+                }
+            }
+        }
+        System.out.println("List of employees:");
+        for (Employee2 x: list){
+            System.out.println(x);
+        }
+         */
+        //Matrix Exercise
+        System.out.print("Enter with the matrix lines number: ");
+        int line = sc.nextInt();
+        System.out.print("Enter with the matrix column number: ");
+        int column = sc.nextInt();
+        int[][] matrix = new int[line][column];
+        for(int i=0;i<line;i++) {
+            for (int j = 0; j < column; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+        System.out.print("Enter with the number to research: ");
+        int numberResearch = sc.nextInt();
+        for(int i=0;i<line;i++) {
+            for (int j = 0; j < column; j++) {
+                if (matrix[i][j] == numberResearch) {
+                    System.out.println("Position " + i + "," + j);
+                    if ((j - 1) >= 0) {
+                        System.out.println("Left: " + matrix[i][j - 1]);
+                    }
+                    if ((i - 1) >= 0) {
+                        System.out.println("Up: " + matrix[i - 1][j]);
+                    }
+                    if ((j + 1) <= (column-1)) {
+                        System.out.println("Right: " + matrix[i][j + 1]);
+                    }
+                    if ((i + 1) <= (line-1)) {
+                        System.out.println("Down: " + matrix[i + 1][j]);
+                    }
+                    System.out.println();
+                }
+            }
+        }
+       sc.close();
     }
 }
