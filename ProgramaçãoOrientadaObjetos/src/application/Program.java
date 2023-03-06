@@ -4,16 +4,22 @@ package application;
 import java.net.Inet4Address;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Date;
+import java.io.File;
+import java.io.FileNotFoundException;
+
 
 import entities.*;
 import entities.enums.OrderStatus;
 import entities.enums.WorkerLevel;
+import exceptions.DomainException;
 import util.CurrencyConverter;
 
 public class Program {
@@ -135,6 +141,7 @@ public class Program {
          */
 
         // Inheritance Exercise
+        /*
         List<Employee3> employees = new ArrayList<>();
         System.out.print("Enter the number of employess: ");
         int number = sc.nextInt();
@@ -164,6 +171,124 @@ public class Program {
         for(Employee3 e: employees)
         {
             System.out.print(e);
+        }
+         */
+
+        // Inheritance Exercise #2
+        /*
+        List<Product3> products = new ArrayList<>();
+        System.out.print("Enter the number of products: ");
+        int number = sc.nextInt();
+        for(int i=0;i<number;i++){
+            System.out.println("Product #"+(i+1)+" data:");
+            System.out.print("Common, used or imported (c/u/i)? ");
+            char x = sc.next().charAt(0);
+            System.out.print("Name: ");
+            sc.nextLine();
+            String name = sc.nextLine();
+            System.out.print("Price: ");
+            double price = sc.nextDouble();
+            if(x =='c'){
+                products.add(new Product3(name,price));
+            }else if( x == 'i'){
+                System.out.print("Customs fee: ");
+                double customFee = sc.nextDouble();
+                products.add(new ImportedProduct(name,price,customFee));
+            }else if(x == 'u'){
+                System.out.print("Manufacture date (DD/MM/YYYY): ");
+                LocalDate date = LocalDate.parse(sc.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                products.add(new UsedProduct(name,price,date));
+            }
+
+        }
+        System.out.println();
+        System.out.print("PRICE TAGS:");
+        for(Product3 p: products){
+            System.out.println(p.priceTag());;
+        }
+
+         */
+
+        // Inheritance Exercise #3
+        /*
+        List<People2> payers = new ArrayList<>();
+        System.out.print("Enter the number of tax payers: ");
+        int taxPayers = sc.nextInt();
+        for(int i=1;i<=taxPayers;i++)
+        {
+            System.out.println("Tax pay #"+i+" data:");
+            System.out.print("Individual or company (i/c)? ");
+            char x = sc.next().charAt(0);
+            System.out.print("Name: ");
+            sc.nextLine();
+            String name = sc.nextLine();
+            System.out.print("Annual income: ");
+            double annualIncome = sc.nextDouble();
+            if(x=='i'){
+                System.out.print("Health expenditures: ");
+                double healthExpenditures = sc.nextDouble();
+                payers.add(new Individual(name,annualIncome,healthExpenditures));
+            }else if(x=='c'){
+                System.out.print("Number of Employees: ");
+                int numberOfEmployees = sc.nextInt();
+                payers.add(new Company(name,annualIncome,numberOfEmployees));
+            }
+        }
+        System.out.println();
+        System.out.println("TAXES PAID:");
+        double sum = 0;
+        for(People2 p: payers)
+        {
+            sum += p.taxesPaid();
+            System.out.println(p.getName()+": $ "+String.format("%.2f",p.taxesPaid()));
+        }
+        System.out.println();
+        System.out.println("TOTAL TAXES: $ "+String.format("%.2f",sum));
+
+         */
+        //Exceptions Exercise
+        /*
+        File file = new File("C:\\tmp\\in.txt");
+        Scanner scanner  = null;
+        try{
+            scanner = new Scanner(file);
+            while(scanner.hasNextLine()){
+                System.out.println(scanner.nextLine());
+            }
+        }
+        catch (FileNotFoundException e){
+            System.out.println("Error opening file: "+ e.getMessage());
+
+        }finally {
+            if(scanner != null){
+                scanner.close();
+            }
+        }
+
+         */
+
+        //Exception Exercise
+        try {
+            System.out.println("Enter account data");
+            System.out.print("Number: ");
+            int number = sc.nextInt();
+            System.out.print("Holder: ");
+            sc.nextLine();
+            String holder = sc.nextLine();
+            System.out.print("Initial balance: ");
+            double initialBalance = sc.nextDouble();
+            System.out.print("Withdraw limit: ");
+            double withDrawLimit = sc.nextDouble();
+            Account acc1 = new Account(number, holder, initialBalance, withDrawLimit);
+            System.out.println();
+
+            System.out.print("Enter amount for withdraw: ");
+            double amount = sc.nextDouble();
+            acc1.withdraw(amount);
+            System.out.println("New balance: " + String.format("%.2f", acc1.getBalance()));
+            }
+        catch (DomainException e){
+            System.out.println("Withdraw error: "+e.getMessage());
         }
 
 
